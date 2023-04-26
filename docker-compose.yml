@@ -1,0 +1,34 @@
+version: "3.8"
+services:
+  server1:
+    container_name: next-container1
+    build:
+      context: ./nextjs-1
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./nextjs-1:/app
+      - /app/node_modules
+
+  server2:
+    container_name: next-container2
+    build:
+      context: ./nextjs-2
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3000"
+    volumes:
+      - ./nextjs-2:/app
+      - /app/node_modules
+
+  server3:
+    container_name: node-container3
+    build:
+      context: ./nextjs-3
+      dockerfile: Dockerfile
+    ports:
+      - "3003:3000"
+    volumes:
+      - ./nextjs-3:/app
+      - /app/node_modules
